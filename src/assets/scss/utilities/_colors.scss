@@ -1,0 +1,74 @@
+// ====== Project colors ======
+
+// === Text ===
+
+$White: hsl(0, 0, 100%);  // (text)
+
+// === Theme 1 ===
+
+// = Backgrounds =
+
+$Very-dark-desaturated-blue-a: hsl(222, 26%, 31%);  // (main background)
+$Very-dark-desaturated-blue-b: hsl(223, 31%, 20%);  // (toggle background, keypad background)
+$Very-dark-desaturated-blue-c: hsl(224, 36%, 15%);  // (screen background)
+
+// = Keys =
+
+$Desaturated-dark-blue-a: hsl(225, 21%, 49%);  // (key background)
+$Desaturated-dark-blue-b: hsl(224, 28%, 35%);  // (key shadow)
+
+$Red: hsl(6, 63%, 50%);  // (key background, toggle)
+$Dark-red: hsl(6, 70%, 34%);  // (key shadow)
+
+$Light-grayish-orange: hsl(30, 25%, 89%);  // (key background)
+$Grayish-orange: hsl(28, 16%, 65%);  // (key shadow)
+
+// = Text =
+
+$Very-dark-grayish-blue: hsl(221, 14%, 31%);
+
+// === Theme 2 ===
+
+// = Backgrounds =
+
+$Light-gray: hsl(0, 0%, 90%);  // (main background)
+$Grayish-red: hsl(0, 5%, 81%);  // (toggle background, keypad background)
+$Very-light-gray: hsl(0, 0%, 93%);  // (screen background)
+
+// = Keys =
+
+$Dark-moderate-cyan: hsl(185, 42%, 37%);  // (key background)
+$Very-dark-cyan: hsl(185, 58%, 25%);  // (key shadow)
+
+$Orange: hsl(25, 98%, 40%);  // (key background, toggle)
+$Dark-orange: hsl(25, 99%, 27%);  // (key shadow)
+
+$Light-grayish-yellow: hsl(45, 7%, 89%);  // (key background)
+$Dark-grayish-orange: hsl(35, 11%, 61%);  // (key shadow)
+
+// = Text =
+
+$Very-dark-grayish-yellow: hsl(60, 10%, 19%);
+
+// === Theme 3 ===
+
+// = Backgrounds =
+
+$Very-dark-violet-a: hsl(268, 75%, 9%);  // (main background)
+$Very-dark-violet-b: hsl(268, 71%, 12%);  // (toggle background, keypad background, screen background)
+
+// = Keys =
+
+$Dark-violet: hsl(281, 89%, 26%);  // (key background)
+$Vivid-magenta: hsl(285, 91%, 52%);  // (key shadow)
+
+$Pure-cyan: hsl(176, 100%, 44%);  // (key background, toggle)
+$Soft-cyan: hsl(177, 92%, 70%);  // (key shadow)
+
+$Very-dark-violet-c: hsl(268, 47%, 21%);  // (key background)
+$Dark-magenta: hsl(290, 70%, 36%);  // (key shadow)
+
+// = Text =
+
+$Light-yellow: hsl(52, 100%, 62%);
+$Very-dark-blue: hsl(198, 20%, 13%);
