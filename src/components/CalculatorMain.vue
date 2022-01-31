@@ -9,12 +9,35 @@
         </div>
 
         <calculator-screen :value="399.981" />
+
+        <!-- Buttons container -->
+        <div class="calculator-main__buttons-container">
+            <calculator-button button-name="7" />
+            <calculator-button button-name="8" />
+            <calculator-button button-name="9" />
+            <calculator-button button-name="DEL" is-clear-button />
+            <calculator-button button-name="4" />
+            <calculator-button button-name="5" />
+            <calculator-button button-name="6" />
+            <calculator-button button-name="+" />
+            <calculator-button button-name="1" />
+            <calculator-button button-name="2" />
+            <calculator-button button-name="3" />
+            <calculator-button button-name="-" />
+            <calculator-button button-name="." />
+            <calculator-button button-name="0" />
+            <calculator-button button-name="/" />
+            <calculator-button button-name="x" />
+            <calculator-button button-name="RESET" is-clear-button />
+            <calculator-button button-name="=" is-result-button />
+        </div>
     </div>
 </template>
 
 <script>
 import CalculatorThemeChanger from "@/components/CalculatorThemeChanger";
 import CalculatorScreen from "@/components/CalculatorScreen";
+import CalculatorButton from "@/components/CalculatorButton";
 import themeMixin from "@/mixins/themeMixin";
 
 export default {
@@ -22,7 +45,8 @@ export default {
     mixins: [themeMixin],
     components: {
         CalculatorThemeChanger,
-        CalculatorScreen
+        CalculatorScreen,
+        CalculatorButton
     },
     methods: {
         // Set theme class to calculator component
@@ -37,7 +61,7 @@ export default {
 .calculator-main {
     height: 100vh;
     
-    padding: 27px 25px;
+    padding: 27px 25px 26px 25px;
 
     overflow-y: auto;
     background-color: $Very-dark-desaturated-blue-a;
@@ -54,6 +78,21 @@ export default {
         font-size: 1.9em;
         color: $White;
         font-family: $spartan;
+    }
+
+    &__buttons-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, auto);
+        row-gap: 17px;
+        column-gap: 14px;
+        justify-content: center;
+
+        margin-top: 22px;
+        padding: 25px 25px 30px 25px;
+
+        border-radius: 10px;
+        background-color: $Very-dark-desaturated-blue-b;
     }
 }
 </style>
