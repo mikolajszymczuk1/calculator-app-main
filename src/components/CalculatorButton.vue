@@ -47,6 +47,12 @@ export default {
     font-size: 1.8em;
     color: $Very-dark-grayish-blue;
 
+    @media screen and (min-width: 768px) {
+        border-radius: 10px;
+
+        font-size: 2em;
+    }
+
     &:nth-child(17) {
         grid-column: 1 / 3;
     }
@@ -61,6 +67,10 @@ export default {
 
         color: $White;
         font-size: 1em;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.2em;
+        }
     }
 
     &--result-button {
@@ -69,6 +79,10 @@ export default {
 
         color: $White;
         font-size: 1em;
+    
+        @media screen and (min-width: 768px) {
+            font-size: 1.2em;
+        }
     }
 }
 </style>

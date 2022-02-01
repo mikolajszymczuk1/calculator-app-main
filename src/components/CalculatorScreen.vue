@@ -26,5 +26,11 @@ export default {
     font-size: 2em;
     font-family: $spartan;
     text-align: right;
+
+    @media screen and (min-width: 850px) {
+        padding: 38px 30px 35px 30px;
+        
+        font-size: 3em;
+    }
 }
 </style>

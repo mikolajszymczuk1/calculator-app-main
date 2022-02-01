@@ -66,6 +66,26 @@ export default {
     overflow-y: auto;
     background-color: $Very-dark-desaturated-blue-a;
 
+    @media screen and (min-width: 600px) {
+        padding: 27px 15vw 26px 15vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding: 27px 25vw 26px 25vw;
+    }
+
+    @media screen and (min-width: 1440px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 27px 31.5vw 26px 31.5vw;
+    }
+
+    @media screen and (min-width: 1800px) {
+        padding: 27px 36vw 26px 36vw;
+    }
+
     &__header-bar {
         display: flex;
         justify-content: space-between;
@@ -93,6 +113,13 @@ export default {
 
         border-radius: 10px;
         background-color: $Very-dark-desaturated-blue-b;
+    
+        @media screen and (min-width: 768px) {
+            row-gap: 28px;
+            column-gap: 24px;
+
+            padding: 30px 30px 38px 30px;
+        }
     }
 }
 </style>
