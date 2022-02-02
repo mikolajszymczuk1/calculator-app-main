@@ -58,6 +58,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.theme-2 {
+    background-color: $Light-gray !important;
+}
+
+.theme-3 {
+    background-color: $Very-dark-violet-a !important;
+}
+
 .calculator-main {
     height: 100vh;
     
@@ -98,6 +106,14 @@ export default {
         font-size: 1.9em;
         color: $White;
         font-family: $spartan;
+
+        .theme-2 & {
+            color: $Very-dark-grayish-yellow;
+        }
+
+        .theme-3 & {
+            color: $Light-yellow;
+        }
     }
 
     &__buttons-container {
@@ -113,12 +129,21 @@ export default {
 
         border-radius: 10px;
         background-color: $Very-dark-desaturated-blue-b;
+        transition: background-color 250ms ease-out;
     
         @media screen and (min-width: 768px) {
             row-gap: 28px;
             column-gap: 24px;
 
             padding: 30px 30px 38px 30px;
+        }
+    
+        .theme-2 & {
+            background-color: $Grayish-red;
+        }
+
+        .theme-3 & {
+            background-color: $Very-dark-violet-b;
         }
     }
 }

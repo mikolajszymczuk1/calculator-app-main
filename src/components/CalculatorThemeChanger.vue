@@ -50,6 +50,14 @@ export default {
         color: $White;
         font-family: $spartan;
         font-size: 0.75em;
+
+        .theme-2 & {
+            color: $Very-dark-grayish-yellow;
+        }
+
+        .theme-3 & {
+            color: $Light-yellow;
+        }
     }
 
     &__mode-button {
@@ -60,6 +68,15 @@ export default {
 
         border-radius: 40px;
         background-color: $Very-dark-desaturated-blue-b;
+        transition: background-color 250ms ease-out;
+
+        .theme-2 & {
+            background-color: $Grayish-red;
+        }
+
+        .theme-3 & {
+            background-color: $Very-dark-violet-b;
+        }
 
         &::before {
             content: "";
@@ -80,12 +97,14 @@ export default {
                 left: 50%;
 
                 transform: translate(-50%, -50%);
+                background-color: $Orange;
             }
         
             .theme-3 & {
                 left: 100%;
 
                 transform: translate(calc(-100% - 6px), -50%);
+                background-color: $Pure-cyan;
             }
         }
     }
@@ -94,12 +113,20 @@ export default {
         position: absolute;
         top: 50%;
         right: 95px;
+        
+        transform: translateY(-50%);
 
         font-family: $spartan;
         color: $White;
         font-size: 0.8em;        
-    
-        transform: translateY(-50%);
+        
+        .theme-2 & {
+            color: $Very-dark-grayish-yellow;
+        }
+
+        .theme-3 & {
+            color: $Light-yellow;
+        }
     }
 }
 </style>

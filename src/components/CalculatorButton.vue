@@ -38,6 +38,7 @@ export default {
     height: 60px;
 
     background-color: $Light-grayish-orange;
+    transition: background-color 250ms ease-out;
     border: 0;
     outline: none;
     border-radius: 5px;
@@ -71,6 +72,20 @@ export default {
         @media screen and (min-width: 768px) {
             font-size: 1.2em;
         }
+
+        .theme-2 & {
+            background-color: $Dark-moderate-cyan !important;
+            box-shadow: 0 4px $Very-dark-cyan !important;
+        
+            color: $White !important;
+        }
+
+        .theme-3 & {
+            background-color: $Dark-violet !important;
+            box-shadow: 0 4px $Vivid-magenta !important;
+        
+            color: $White !important;
+        }
     }
 
     &--result-button {
@@ -83,6 +98,34 @@ export default {
         @media screen and (min-width: 768px) {
             font-size: 1.2em;
         }
+
+        .theme-2 & {
+            background-color: $Orange !important;
+            box-shadow: 0 4px $Dark-orange !important;
+        
+            color: $White !important;
+        }
+
+        .theme-3 & {
+            background-color: $Pure-cyan !important;
+            box-shadow: 0 4px $Soft-cyan !important;
+
+            color: $Very-dark-blue !important;
+        }
+    }
+
+    .theme-2 & {
+        background-color: $Light-grayish-yellow;
+        box-shadow: 0 4px $Dark-grayish-orange;
+
+        color: $Very-dark-grayish-yellow;
+    }
+
+    .theme-3 & {
+        background-color: $Very-dark-violet-c;
+        box-shadow: 0 4px $Dark-magenta;
+        
+        color: $Light-yellow;
     }
 }
 </style>

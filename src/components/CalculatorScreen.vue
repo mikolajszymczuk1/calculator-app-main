@@ -20,6 +20,7 @@ export default {
     padding: 25px 25px 28px 20px;
 
     background-color: $Very-dark-desaturated-blue-c;
+    transition: background-color 250ms ease-out;
     border-radius: 10px;
 
     color: $White;
@@ -31,6 +32,18 @@ export default {
         padding: 38px 30px 35px 30px;
         
         font-size: 3em;
+    }
+
+    .theme-2 & {
+        background-color: $Very-light-gray;
+
+        color: $Very-dark-grayish-yellow;
+    }
+
+    .theme-3 & {
+        background-color: $Very-dark-violet-b;
+
+        color: $Light-yellow;
     }
 }
 </style>
