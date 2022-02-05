@@ -8,7 +8,7 @@ export default {
     name: "CalculatorScreen",
     props: {
         value: {
-            type: Number,
+            type: String,
             required: true
         }
     }
@@ -22,6 +22,7 @@ export default {
     background-color: $Very-dark-desaturated-blue-c;
     transition: background-color 250ms ease-out;
     border-radius: 10px;
+    overflow-x: auto;
 
     color: $White;
     font-size: 2em;
