@@ -1,6 +1,8 @@
 <template>
+    <!-- Calculator button component -->
     <button class="calculator-button"
         :class="getClasses"
+        @click="makeOperation"
     >
         {{ buttonName }}
     </button>
@@ -19,6 +21,9 @@ export default {
         },
         isResultButton: {
             type: Boolean
+        },
+        isOperatorButton: {
+            type: Boolean
         }
     },
     computed: {
@@ -27,6 +32,19 @@ export default {
             if (this.isClearButton) return "calculator-button--clear-button";
             if (this.isResultButton) return "calculator-button--result-button";
             return "";
+        }
+    },
+    methods: {
+        makeOperation() {
+            if (this.isClearButton) {
+                this.$emit("clear");
+            } else if (this.isResultButton) {
+                this.$emit("result");
+            } else if (this.isOperatorButton) {
+                this.$emit("operator", this.buttonName);
+            } else {
+                this.$emit("insert", this.buttonName);
+            }
         }
     }
 }
