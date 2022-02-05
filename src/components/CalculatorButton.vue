@@ -37,7 +37,7 @@ export default {
     methods: {
         makeOperation() {
             if (this.isClearButton) {
-                this.$emit("clear");
+                this.buttonName === "DEL" ? this.$emit("clear") : this.$emit("reset");
             } else if (this.isResultButton) {
                 this.$emit("result");
             } else if (this.isOperatorButton) {
