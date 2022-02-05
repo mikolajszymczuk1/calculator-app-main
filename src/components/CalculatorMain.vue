@@ -28,7 +28,7 @@
             <calculator-button button-name="0" @insert="insertElementToScreen" />
             <calculator-button button-name="/" @operator="operatorAction" is-operator-button />
             <calculator-button button-name="x" @operator="operatorAction" is-operator-button />
-            <calculator-button button-name="RESET" @clear="clearScreen" is-clear-button />
+            <calculator-button button-name="RESET" @reset="resetCalculator" is-clear-button />
             <calculator-button button-name="=" @result="calculateResult" is-result-button />
         </div>
     </div>
@@ -70,7 +70,7 @@ export default {
             }
 
             if (this.isResultCalculated) {
-                this.clearScreen();
+                this.resetCalculator();
             }
 
             if (this.result === "0" && element !== ".") {
@@ -92,6 +92,13 @@ export default {
 
         // Clear calculator screen
         clearScreen() {
+            if (this.isResultCalculated) return;
+
+            this.result = this.result.length > 1 ? this.result.slice(0, this.result.length - 1) : "0";
+        },
+
+        // Reset all calculator
+        resetCalculator() {
             this.memoryNumber = "";
             this.result = "0";
             this.currentOperator = "";
