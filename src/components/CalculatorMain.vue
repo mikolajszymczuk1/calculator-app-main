@@ -8,28 +8,28 @@
             <calculator-theme-changer @change-theme="onChangeTheme" />
         </div>
 
-        <calculator-screen :value="399.981" />
+        <calculator-screen :value="result" />
 
         <!-- Buttons container -->
         <div class="calculator-main__buttons-container">
-            <calculator-button button-name="7" />
-            <calculator-button button-name="8" />
-            <calculator-button button-name="9" />
-            <calculator-button button-name="DEL" is-clear-button />
-            <calculator-button button-name="4" />
-            <calculator-button button-name="5" />
-            <calculator-button button-name="6" />
-            <calculator-button button-name="+" />
-            <calculator-button button-name="1" />
-            <calculator-button button-name="2" />
-            <calculator-button button-name="3" />
-            <calculator-button button-name="-" />
-            <calculator-button button-name="." />
-            <calculator-button button-name="0" />
-            <calculator-button button-name="/" />
-            <calculator-button button-name="x" />
-            <calculator-button button-name="RESET" is-clear-button />
-            <calculator-button button-name="=" is-result-button />
+            <calculator-button button-name="7" @insert="insertElementToScreen" />
+            <calculator-button button-name="8" @insert="insertElementToScreen" />
+            <calculator-button button-name="9" @insert="insertElementToScreen" />
+            <calculator-button button-name="DEL" @clear="clearScreen" is-clear-button />
+            <calculator-button button-name="4" @insert="insertElementToScreen" />
+            <calculator-button button-name="5" @insert="insertElementToScreen" />
+            <calculator-button button-name="6" @insert="insertElementToScreen" />
+            <calculator-button button-name="+" @operator="operatorAction" is-operator-button />
+            <calculator-button button-name="1" @insert="insertElementToScreen" />
+            <calculator-button button-name="2" @insert="insertElementToScreen" />
+            <calculator-button button-name="3" @insert="insertElementToScreen" />
+            <calculator-button button-name="-" @operator="operatorAction" is-operator-button />
+            <calculator-button button-name="." @insert="insertElementToScreen" />
+            <calculator-button button-name="0" @insert="insertElementToScreen" />
+            <calculator-button button-name="/" @operator="operatorAction" is-operator-button />
+            <calculator-button button-name="x" @operator="operatorAction" is-operator-button />
+            <calculator-button button-name="RESET" @clear="clearScreen" is-clear-button />
+            <calculator-button button-name="=" @result="calculateResult" is-result-button />
         </div>
     </div>
 </template>
@@ -43,6 +43,15 @@ import themeMixin from "@/mixins/themeMixin";
 export default {
     name: "CalculatorMain",
     mixins: [themeMixin],
+    data() {
+        return {
+            memoryNumber: "",
+            result: "0",
+            currentOperator: "",
+            isOperatorButtonClicked: false,
+            isResultCalculated: false
+        }
+    },
     components: {
         CalculatorThemeChanger,
         CalculatorScreen,
@@ -52,6 +61,112 @@ export default {
         // Set theme class to calculator component
         onChangeTheme(e) {
             this.theme = e;
+        },
+
+        // Insert number or dot to calculator screen
+        insertElementToScreen(element) {    
+            if (element === "." && (this.result === "" || this.result.search("[.]") !== -1)) {
+                return;
+            }
+
+            if (this.isResultCalculated) {
+                this.clearScreen();
+            }
+
+            if (this.result === "0" && element !== ".") {
+                this.result = "";
+            }
+
+            this.result += element;
+        },
+
+        // Do operator action
+        operatorAction(operator) {
+            if (this.isOperatorButtonClicked) return;
+
+            this.isOperatorButtonClicked = true;
+            this.memoryNumber = this.result;
+            this.result = "0";
+            this.currentOperator = operator;
+        },
+
+        // Clear calculator screen
+        clearScreen() {
+            this.memoryNumber = "";
+            this.result = "0";
+            this.currentOperator = "";
+            this.isOperatorButtonClicked = false;
+            this.isResultCalculated = false;
+        },
+
+        // Calculate result from numberA and numberB
+        calculateResult() {
+            if (!this.isOperatorButtonClicked) return;
+
+            let a;
+            let b;
+
+            if (!this.isResultCalculated) {
+                a = parseFloat(this.fixNumber(this.memoryNumber));
+                b = parseFloat(this.fixNumber(this.result));
+                this.memoryNumber = this.result;
+            } else {
+                a = parseFloat(this.fixNumber(this.result));
+                b = parseFloat(this.fixNumber(this.memoryNumber));
+            }
+
+            switch(this.currentOperator) {
+                case "+":
+                    this.result = this.add(a, b).toString();
+                    break;
+                
+                case "-":
+                    this.result = this.subtract(a, b).toString();
+                    break;
+
+                case "x":
+                    this.result = this.multiply(a, b).toString();
+                    break;
+
+                case "/":
+                    this.result = this.divide(a, b).toString();
+                    break;
+            }
+            
+            this.isResultCalculated = true;
+        },
+
+        // Fix number. remove unused dot, replace empty string with 0
+        fixNumber(stringNumber) {
+            let fixedNumber = stringNumber;
+            fixedNumber = fixedNumber === "" ? "0" : fixedNumber;
+            fixedNumber = fixedNumber[fixedNumber.length - 1] === "." ? fixedNumber.slice(0, fixedNumber.length - 1) : fixedNumber;
+            
+            return fixedNumber;
+        },
+
+        // Return sum of two numbers
+        add(a, b) {
+            return a + b;
+        },
+
+        // Return difference of two numbers
+        subtract(a, b) {
+            return a - b;
+        },
+        
+        // Return product of two numbers
+        multiply(a, b) {
+            return a * b;
+        },
+        
+        // Return quotient of two numbers
+        divide(a, b) {
+            if (b === 0) {
+                return "Divide by 0 !";
+            }
+
+            return a / b;
         }
     }
 }
