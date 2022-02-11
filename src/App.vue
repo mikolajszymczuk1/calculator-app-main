@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <main>
         <calculator-main />
-    </div>
+    </main>
 </template>
 
 <script>
