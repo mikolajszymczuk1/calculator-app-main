@@ -1,35 +1,37 @@
 <template>
     <!-- Calculator component -->
     <div class="calculator-main"
-        :class="getThemeClass(theme)">
+        :class="getThemeClass(theme)"
+        data-cy="calculator"
+    >
         <!-- Top bar of calculator -->
         <div class="calculator-main__header-bar">
             <h1 class="calculator-main__logo">calc</h1>
-            <calculator-theme-changer @change-theme="onChangeTheme" />
+            <calculator-theme-changer data-cy="theme-changer" @change-theme="onChangeTheme" />
         </div>
 
-        <calculator-screen :value="result" />
+        <calculator-screen data-cy="screen" :value="result" />
 
         <!-- Buttons container -->
         <div class="calculator-main__buttons-container">
-            <calculator-button button-name="7" @insert="insertElementToScreen" />
-            <calculator-button button-name="8" @insert="insertElementToScreen" />
-            <calculator-button button-name="9" @insert="insertElementToScreen" />
-            <calculator-button button-name="DEL" @clear="clearScreen" is-clear-button />
-            <calculator-button button-name="4" @insert="insertElementToScreen" />
-            <calculator-button button-name="5" @insert="insertElementToScreen" />
-            <calculator-button button-name="6" @insert="insertElementToScreen" />
-            <calculator-button button-name="+" @operator="operatorAction" is-operator-button />
-            <calculator-button button-name="1" @insert="insertElementToScreen" />
-            <calculator-button button-name="2" @insert="insertElementToScreen" />
-            <calculator-button button-name="3" @insert="insertElementToScreen" />
-            <calculator-button button-name="-" @operator="operatorAction" is-operator-button />
-            <calculator-button button-name="." @insert="insertElementToScreen" />
-            <calculator-button button-name="0" @insert="insertElementToScreen" />
-            <calculator-button button-name="/" @operator="operatorAction" is-operator-button />
-            <calculator-button button-name="x" @operator="operatorAction" is-operator-button />
-            <calculator-button button-name="RESET" @reset="resetCalculator" is-clear-button />
-            <calculator-button button-name="=" @result="calculateResult" is-result-button />
+            <calculator-button data-cy="insert-button" button-name="7" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="8" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="9" @insert="insertElementToScreen" />
+            <calculator-button data-cy="del-button" button-name="DEL" @clear="clearScreen" is-clear-button />
+            <calculator-button data-cy="insert-button" button-name="4" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="5" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="6" @insert="insertElementToScreen" />
+            <calculator-button data-cy="plus-operator" button-name="+" @operator="operatorAction" is-operator-button />
+            <calculator-button data-cy="insert-button" button-name="1" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="2" @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="3" @insert="insertElementToScreen" />
+            <calculator-button data-cy="minus-operator" button-name="-" @operator="operatorAction" is-operator-button />
+            <calculator-button data-cy="insert-button" button-name="." @insert="insertElementToScreen" />
+            <calculator-button data-cy="insert-button" button-name="0" @insert="insertElementToScreen" />
+            <calculator-button data-cy="divide-operator" button-name="/" @operator="operatorAction" is-operator-button />
+            <calculator-button data-cy="multiply-operator" button-name="x" @operator="operatorAction" is-operator-button />
+            <calculator-button data-cy="reset-button" button-name="RESET" @reset="resetCalculator" is-clear-button />
+            <calculator-button data-cy="result-button" button-name="=" @result="calculateResult" is-result-button />
         </div>
     </div>
 </template>
