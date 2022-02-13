@@ -46,7 +46,6 @@ Users should be able to:
 - Mobile-first workflow
 - [Vue.js](https://vuejs.org/) - front-end framework
 - [Jest](https://jestjs.io/) - for unit testing
-- [Vuex](https://vuex.vuejs.org/) - state management
 - [Cypres](https://www.cypress.io/) - for E2E testing
 
 ### What I learned
