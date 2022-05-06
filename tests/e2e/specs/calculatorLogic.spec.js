@@ -1,6 +1,5 @@
 // === Helpers functions ===
-
-clickAllInsertButtons = () => {
+const clickAllInsertButtons = () => {
     cy.get("[data-cy=insert-button]").each(($el) => {
         $el.click();
     });
